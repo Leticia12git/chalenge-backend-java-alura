@@ -1,14 +1,16 @@
 package com.projeto.alura.apijornada.service;
 
+import com.projeto.alura.apijornada.dto.DepoimentoDTO;
 import com.projeto.alura.apijornada.model.Depoimento;
 import com.projeto.alura.apijornada.repository.DepoimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Classe de serviços relacionada a depoimentos
@@ -24,13 +26,17 @@ public class DepoimentoService {
     /**
      * metodo para criar um depoimento
      *
-     * @param depoimento
+     * @param
      * @return depoimento
      */
 
-    public Depoimento criarDepoimento(Depoimento depoimento) {
-        return depoimentoRepository.save(depoimento);
-
+    public ResponseEntity<DepoimentoDTO> criarDepoimento(DepoimentoDTO depoimentoDTO) {
+        Depoimento depoimento = new Depoimento();
+        depoimento.setNome(depoimentoDTO.getNome());
+        depoimento.setFoto(depoimentoDTO.getFoto());
+        depoimento.setDepoimento(depoimentoDTO.getDepoimento());
+        depoimentoRepository.save(depoimento);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     /**
@@ -40,7 +46,6 @@ public class DepoimentoService {
      */
     @GetMapping
     public List<Depoimento> exibirDepoimentos() {
-        //Random random = new Random();
         return depoimentoRepository.findAll();
 
     }

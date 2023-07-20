@@ -1,13 +1,16 @@
 package com.projeto.alura.apijornada.controller;
 
+import com.projeto.alura.apijornada.dto.DepoimentoDTO;
 import com.projeto.alura.apijornada.model.Depoimento;
-import com.projeto.alura.apijornada.repository.DepoimentoRepository;
 import com.projeto.alura.apijornada.service.DepoimentoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Classe de endpoints de depoimento s
@@ -22,14 +25,16 @@ public class DepoimentoController {
     /**
      * Endpoint para criar um depoimento
      *
-     * @param depoimento
+     * @param
      * @return depoimento
      */
 
 
     @PostMapping
-    public Depoimento criarDepoimento(@RequestBody Depoimento depoimento) {
-        return depoimentoService.criarDepoimento(depoimento);
+    public ResponseEntity criarDepoimento(@RequestBody @Valid DepoimentoDTO depoimentoDTO, UriComponentsBuilder uriBuilder) {
+        Depoimento depoimento = depoimentoService.criarDepoimento(depoimentoDTO);
+        URI uri = uriBuilder.path("/depoimento/{id}").buildAndExpand(depoimento.getId()).toUri();
+        return ResponseEntity.created(uri).body(depoimento);
     }
 
     /**
@@ -39,7 +44,6 @@ public class DepoimentoController {
      */
     @GetMapping
     public List<Depoimento> exibirDepoimentos() {
-        Random random = new Random();
         return depoimentoService.exibirDepoimentos();
 
     }
@@ -52,7 +56,6 @@ public class DepoimentoController {
      */
     @PutMapping(name = "/{id}")
     public Depoimento atualizarDepoimento(@RequestBody Depoimento depoimento) {
-        Depoimento depoimentoNovo = new Depoimento();
         return depoimentoService.atualizarDepoimento(depoimento);
     }
 
