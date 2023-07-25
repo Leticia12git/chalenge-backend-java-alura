@@ -17,7 +17,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping(name = "/depoimentos")
+@RequestMapping("/depoimentos")
 public class DepoimentoController {
     @Autowired
     private DepoimentoService depoimentoService;
@@ -32,8 +32,8 @@ public class DepoimentoController {
 
     @PostMapping
     public ResponseEntity criarDepoimento(@RequestBody @Valid DepoimentoDTO depoimentoDTO, UriComponentsBuilder uriBuilder) {
-        DepoimentoDTO depoimento = depoimentoService.criarDepoimento(depoimentoDTO);
-        URI uri = uriBuilder.path("/depoimento/{id}").buildAndExpand().toUri();
+        Depoimento depoimento = depoimentoService.criarDepoimento(depoimentoDTO);
+        URI uri = uriBuilder.path("/depoimento").buildAndExpand().toUri();
         return ResponseEntity.created(uri).body(depoimento);
     }
 
@@ -55,7 +55,7 @@ public class DepoimentoController {
      * @return depoimento
      */
     @PutMapping(name = "/{id}")
-    public Depoimento atualizarDepoimento(@RequestBody Depoimento depoimento,@PathVariable Long id) {
+    public Depoimento atualizarDepoimento(@RequestBody Depoimento depoimento) {
         return depoimentoService.atualizarDepoimento(depoimento);
     }
 

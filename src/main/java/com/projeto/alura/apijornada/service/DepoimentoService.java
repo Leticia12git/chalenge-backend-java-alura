@@ -5,10 +5,11 @@ import com.projeto.alura.apijornada.model.Depoimento;
 import com.projeto.alura.apijornada.repository.DepoimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Classe de serviços relacionada a depoimentos
@@ -28,13 +29,13 @@ public class DepoimentoService {
      * @return depoimento
      */
 
-    public DepoimentoDTO criarDepoimento(DepoimentoDTO depoimentoDTO) {
+    public Depoimento criarDepoimento(DepoimentoDTO depoimentoDTO) {
         Depoimento depoimento = new Depoimento();
         depoimento.setNome(depoimentoDTO.getNome());
         depoimento.setFoto(depoimentoDTO.getFoto());
         depoimento.setDepoimento(depoimentoDTO.getDepoimento());
         depoimentoRepository.save(depoimento);
-        return depoimentoDTO;
+        return depoimento;
     }
 
     /**
@@ -66,5 +67,22 @@ public class DepoimentoService {
      */
     public void deletarDepoimento(Long id) {
         depoimentoRepository.deleteById(id);
+    }
+
+    public List<Depoimento> obterDepoimentosRandomicos() {
+        List<Depoimento> depoimentos = depoimentoRepository.findAll();
+        if (depoimentos.isEmpty()) {
+            return new ArrayList<>();
+        }
+        List<Depoimento> depoimentosRandomicos = new ArrayList<>();
+        Random random = new Random();
+
+        while (depoimentosRandomicos.size() < 3) {
+            Depoimento depoimento = depoimentos.get(random.nextInt(depoimentos.size()));
+            if (!depoimentosRandomicos.contains(depoimento)) {
+                depoimentosRandomicos.add(depoimento);
+            }
+        }
+        return depoimentosRandomicos;
     }
 }

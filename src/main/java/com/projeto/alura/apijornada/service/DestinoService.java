@@ -1,10 +1,8 @@
 package com.projeto.alura.apijornada.service;
 
-import com.projeto.alura.apijornada.dto.DepoimentoDTO;
 import com.projeto.alura.apijornada.dto.DestinoDTO;
 import com.projeto.alura.apijornada.model.Destino;
 import com.projeto.alura.apijornada.repository.DestinoRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,21 +15,23 @@ public class DestinoService {
     private DestinoRepository destinoRepository;
 
 
-    public List<DestinoDTO> buscarDestinoPorNome(DestinoDTO destinoDTO) throws Exception {
+    public void buscarDestinoPorNome(DestinoDTO destinoDTO) throws Exception {
         try {
             var destinos = destinoRepository.findAll();
 
         } catch (Exception e){
             throw new Exception("Nenhum destino foi encontrado !");
         }
-        return destinos;
     }
 
-    public DestinoDTO criarDestino(@Valid DepoimentoDTO destinoDTO) {
-        DestinoDTO destino = new DestinoDTO();
-        destino.getFoto();
+    public Destino criarDestino(DestinoDTO destinoDTO) {
+        Destino destino = new Destino();
+        destino.setFoto(destinoDTO.getFoto());
+        destino.setNome(destinoDTO.getNome());
+        destino.setPreco(destinoDTO.getPreco());
         destinoRepository.save(destino);
-        return destinoDTO;
+        return destino;
+
     }
 
 
@@ -45,7 +45,7 @@ public class DestinoService {
     }
 
 
-    public void deletarDestino(Long id) {
+    public void excluirDestino(Long id) {
         destinoRepository.deleteById(id);
     }
 }
