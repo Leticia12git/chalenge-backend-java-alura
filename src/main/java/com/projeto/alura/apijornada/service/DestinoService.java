@@ -35,11 +35,6 @@ public class DestinoService {
     }
 
 
-    public List<Destino> exibirDestinos() {
-        return destinoRepository.findAll();
-
-    }
-
     public Destino atualizarDestino( Destino destino) {
         return destinoRepository.save(destino);
     }
@@ -47,5 +42,9 @@ public class DestinoService {
 
     public void excluirDestino(Long id) {
         destinoRepository.deleteById(id);
+    }
+
+    public List<Destino> listarDestinos() {
+        return destinoRepository.findAll();
     }
 }

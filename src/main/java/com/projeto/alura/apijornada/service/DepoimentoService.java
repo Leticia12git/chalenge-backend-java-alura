@@ -5,7 +5,6 @@ import com.projeto.alura.apijornada.model.Depoimento;
 import com.projeto.alura.apijornada.repository.DepoimentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +27,7 @@ public class DepoimentoService {
      * @param
      * @return depoimento
      */
+
 
     public Depoimento criarDepoimento(DepoimentoDTO depoimentoDTO) {
         Depoimento depoimento = new Depoimento();
@@ -55,7 +55,7 @@ public class DepoimentoService {
      * @param depoimento
      * @return depoimento
      */
-    public Depoimento atualizarDepoimento(@RequestBody Depoimento depoimento) {
+    public Depoimento atualizarDepoimento( Depoimento depoimento) {
         return depoimentoRepository.save(depoimento);
     }
 
@@ -69,6 +69,10 @@ public class DepoimentoService {
         depoimentoRepository.deleteById(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Depoimento> obterDepoimentosRandomicos() {
         List<Depoimento> depoimentos = depoimentoRepository.findAll();
         if (depoimentos.isEmpty()) {
@@ -76,7 +80,6 @@ public class DepoimentoService {
         }
         List<Depoimento> depoimentosRandomicos = new ArrayList<>();
         Random random = new Random();
-
         while (depoimentosRandomicos.size() < 3) {
             Depoimento depoimento = depoimentos.get(random.nextInt(depoimentos.size()));
             if (!depoimentosRandomicos.contains(depoimento)) {

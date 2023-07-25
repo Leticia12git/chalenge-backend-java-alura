@@ -17,10 +17,20 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/depoimentos")
+@RequestMapping(value = "/depoimentos-home")
 public class DepoimentoController {
     @Autowired
     private DepoimentoService depoimentoService;
+
+    /**
+     *
+     * @return
+     */
+
+    @GetMapping
+    public List<Depoimento> obterDepoimentosRandomicos() {
+        return depoimentoService.obterDepoimentosRandomicos();
+    }
 
     /**
      * Endpoint para criar um depoimento
@@ -30,7 +40,7 @@ public class DepoimentoController {
      */
 
 
-    @PostMapping
+    @PostMapping("/cadastrar-depoimentos")
     public ResponseEntity criarDepoimento(@RequestBody @Valid DepoimentoDTO depoimentoDTO, UriComponentsBuilder uriBuilder) {
         Depoimento depoimento = depoimentoService.criarDepoimento(depoimentoDTO);
         URI uri = uriBuilder.path("/depoimento").buildAndExpand().toUri();
@@ -42,7 +52,7 @@ public class DepoimentoController {
      *
      * @return List<Depoimento>
      */
-    @GetMapping
+    @GetMapping("/exibir-depoimentos")
     public List<Depoimento> exibirDepoimentos() {
         return depoimentoService.exibirDepoimentos();
 

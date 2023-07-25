@@ -13,11 +13,27 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/destinos")
+@RequestMapping(value = "/destinos-home")
 public class DestinoController {
 
     @Autowired
     private DestinoService destinoService;
+
+    /**
+     *
+     * @return
+     */
+    @GetMapping
+    public List<Destino> listarDestinos(){
+        return destinoService.listarDestinos();
+    }
+
+    /**
+     *
+     * @param destinoDTO
+     * @param uriBuilder
+     * @return
+     */
 
     @PostMapping
     public ResponseEntity criarDestino(@RequestBody @Valid DestinoDTO destinoDTO, UriComponentsBuilder uriBuilder) {
@@ -26,12 +42,11 @@ public class DestinoController {
         return ResponseEntity.created(uri).body(destino);
     }
 
-
-    @GetMapping
-    public List<Destino> exibirDestino() {
-        return destinoService.exibirDestinos();
-
-    }
+    /**
+     *
+     * @param destino
+     * @return
+     */
 
 
     @PutMapping(name = "/{id}")
@@ -39,6 +54,10 @@ public class DestinoController {
         return destinoService.atualizarDestino(destino);
     }
 
+    /**
+     *
+     * @param id
+     */
 
     @DeleteMapping(name = "/{id}")
     public void excluirDestino(Long id) {
