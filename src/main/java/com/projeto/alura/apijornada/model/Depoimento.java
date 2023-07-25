@@ -1,7 +1,9 @@
 package com.projeto.alura.apijornada.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -10,6 +12,8 @@ import java.io.Serializable;
  * Entidade relacionada a depoimento
  */
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Data
 @Table(name = "depoimentos")

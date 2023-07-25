@@ -32,8 +32,8 @@ public class DepoimentoController {
 
     @PostMapping
     public ResponseEntity criarDepoimento(@RequestBody @Valid DepoimentoDTO depoimentoDTO, UriComponentsBuilder uriBuilder) {
-        Depoimento depoimento = depoimentoService.criarDepoimento(depoimentoDTO);
-        URI uri = uriBuilder.path("/depoimento/{id}").buildAndExpand(depoimento.getId()).toUri();
+        DepoimentoDTO depoimento = depoimentoService.criarDepoimento(depoimentoDTO);
+        URI uri = uriBuilder.path("/depoimento/{id}").buildAndExpand().toUri();
         return ResponseEntity.created(uri).body(depoimento);
     }
 
@@ -55,7 +55,7 @@ public class DepoimentoController {
      * @return depoimento
      */
     @PutMapping(name = "/{id}")
-    public Depoimento atualizarDepoimento(@RequestBody Depoimento depoimento) {
+    public Depoimento atualizarDepoimento(@RequestBody Depoimento depoimento,@PathVariable Long id) {
         return depoimentoService.atualizarDepoimento(depoimento);
     }
 
