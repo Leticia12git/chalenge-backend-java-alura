@@ -24,19 +24,20 @@ Destinos: Possibilita cadastrar, listar, editar e excluir destinos de viagem emo
 ## Documentação 📝
 Para detalhes sobre os endpoints disponíveis, seus parâmetros e respostas, acesse a Documentação da API.
 
-## Como Usar 🚀
+## Clonar Repositorio 🚀
 Clone este repositório em sua máquina local usando o seguinte comando:
 
-Copy code
+```
 git clone https://github.com/seu-usuario/jornada-milhas.git
-Instale as dependências necessárias executando o seguinte comando:
+```
 
-Copy code
+Instale as dependências necessárias executando o seguinte comando:
+```
 npm install
+```
 Inicie o servidor local da API com o comando:
 
 sql
-Copy code
 npm start
 Acesse a API através da URL:
 
@@ -44,13 +45,34 @@ Acesse a API através da URL:
 Copy code
 http://localhost:8080
 
-## Exemplos de Uso 
+## Enpoints da API para Depoimentos
 Aqui estão endpoints de exemplos de como interagir com a API :
 
-DELETE http://localhost:3000/destinos/2
+```
+GET /depoimento-home 
 
-️ 
-Em caso de dúvidas ou sugestões, entre em contato conosco pelo email: contato@jornadamilhas.com
+POST /depoimento-home 
+
+PUT /depoimento-home 
+
+DELETE/depoimento-home
+
+```
+
+
+## Enpoints da API para Destinos
+Aqui estão endpoints de exemplos de como interagir com a API :
+
+```
+GET /destinos-home 
+
+POST /destinos-home 
+
+PUT /destinos-home 
+
+DELETE /destinos-home
+
+```
 
 Licença 📜
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
@@ -58,6 +80,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para m
 Agradecemos por escolher a API Jornada Milhas! Tenha uma ótima viagem! 🌟✨
 
 
-
 ## Endereço para consulta swagger
 http://localhost:8080/swagger-ui/index.html
+
+
