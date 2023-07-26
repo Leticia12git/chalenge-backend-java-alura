@@ -21,9 +21,12 @@ Destinos: Possibilita cadastrar, listar, editar e excluir destinos de viagem emo
 - JUnit
 
 
-## Documentação 📝
+## Documentação Swagger 📝
 Para detalhes sobre os endpoints disponíveis, seus parâmetros e respostas, acesse a Documentação da API.
 
+```
+http://localhost:8080/swagger-ui/index.html
+```
 ## Clonar Repositorio 🚀
 Clone este repositório em sua máquina local usando o seguinte comando:
 
@@ -81,10 +84,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para m
 Agradecemos por escolher a API Jornada Milhas! Tenha uma ótima viagem! 🌟✨
 
 
-## Endereço para documentação swagger
-```
-http://localhost:8080/swagger-ui/index.html
-```
 
 
 
