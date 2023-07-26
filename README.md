@@ -17,7 +17,7 @@ Destinos: Possibilita cadastrar, listar, editar e excluir destinos de viagem emo
 - Maven
 - Swagger
 - Lombok
-- Hibernate
+- Hibernate/JPA
 - JUnit
 
 
@@ -35,15 +35,15 @@ Instale as dependências necessárias executando o seguinte comando:
 ```
 npm install
 ```
+
 Inicie o servidor local da API com o comando:
 
-sql
 npm start
 Acesse a API através da URL:
-
-
-Copy code
+```
 http://localhost:8080
+```
+
 
 ## Enpoints da API para Depoimentos
 Aqui estão endpoints de exemplos de como interagir com a API :
@@ -80,7 +80,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para m
 Agradecemos por escolher a API Jornada Milhas! Tenha uma ótima viagem! 🌟✨
 
 
-## Endereço para consulta swagger
+## Endereço para documentaçõa swagger
 http://localhost:8080/swagger-ui/index.html
 
 
