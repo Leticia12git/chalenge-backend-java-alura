@@ -74,13 +74,14 @@ DELETE /destinos-home
 
 ```
 
-Licença 📜
+## Licença 📜
+
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
 
 Agradecemos por escolher a API Jornada Milhas! Tenha uma ótima viagem! 🌟✨
 
 
-## Endereço para documentaçõa swagger
+## Endereço para documentação swagger
 http://localhost:8080/swagger-ui/index.html
 
 
