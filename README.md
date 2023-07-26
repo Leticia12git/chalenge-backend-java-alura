@@ -31,7 +31,7 @@ http://localhost:8080/swagger-ui/index.html
 Clone este repositório em sua máquina local usando o seguinte comando:
 
 ```
-git clone https://github.com/seu-usuario/jornada-milhas.git
+git clone https://github.com/Leticia12git/chalenge-backend-java-alura.git
 ```
 
 Instale as dependências necessárias executando o seguinte comando:
