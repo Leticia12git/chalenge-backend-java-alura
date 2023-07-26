@@ -48,6 +48,7 @@ http://localhost:8080
 Aqui estão endpoints de exemplos de como interagir com a API :
 
 http://localhost:3000/depoimentos
+
 Criar um novo depoimento:
 "autor": "João",
 "mensagem": "Viagem incrível!"}' 
@@ -61,9 +62,9 @@ http://localhost:3000/depoimentos/1
 
 
 Deletar um destino:
-curl -X DELETE http://localhost:3000/destinos/2
+DELETE http://localhost:3000/destinos/2
 
-️
+️ 
 Em caso de dúvidas ou sugestões, entre em contato conosco pelo email: contato@jornadamilhas.com
 
 Licença 📜
