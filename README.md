@@ -27,7 +27,6 @@ Para detalhes sobre os endpoints disponíveis, seus parâmetros e respostas, ace
 ## Como Usar 🚀
 Clone este repositório em sua máquina local usando o seguinte comando:
 
-bash
 Copy code
 git clone https://github.com/seu-usuario/jornada-milhas.git
 Instale as dependências necessárias executando o seguinte comando:
@@ -41,31 +40,27 @@ Copy code
 npm start
 Acesse a API através da URL:
 
-arduino
-Copy code
-http://localhost:3000
-Exemplos de Uso ⚙️
-Aqui estão alguns exemplos de como interagir com a API usando curl:
 
+Copy code
+http://localhost:8080
+
+## Exemplos de Uso 
+Aqui estão endpoints de exemplos de como interagir com a API :
+
+http://localhost:3000/depoimentos
 Criar um novo depoimento:
+"autor": "João",
+"mensagem": "Viagem incrível!"}' 
 
-json
-Copy code
-curl -X POST -H "Content-Type: application/json" -d '{"autor": "João", "mensagem": "Viagem incrível!"}' http://localhost:3000/depoimentos
-Obter todos os destinos:
 
-bash
-Copy code
-curl http://localhost:3000/destinos
+
+http://localhost:3000/destinos
 Atualizar um depoimento existente:
+{"mensagem": "Melhor viagem da minha vida!"}' 
+http://localhost:3000/depoimentos/1
 
-json
-Copy code
-curl -X PUT -H "Content-Type: application/json" -d '{"mensagem": "Melhor viagem da minha vida!"}' http://localhost:3000/depoimentos/1
+
 Deletar um destino:
-
-bash
-Copy code
 curl -X DELETE http://localhost:3000/destinos/2
 
 ️
@@ -75,12 +70,6 @@ Licença 📜
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
 
 Agradecemos por escolher a API Jornada Milhas! Tenha uma ótima viagem! 🌟✨
-
-
-
-
-
-
 
 
 
